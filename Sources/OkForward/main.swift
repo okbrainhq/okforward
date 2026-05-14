@@ -1,4 +1,5 @@
 import AppKit
+import OkForwardCore
 
 if CommandLine.arguments.contains("--smoke-test") {
     exit(ProxySmokeTest.run() ? EXIT_SUCCESS : EXIT_FAILURE)

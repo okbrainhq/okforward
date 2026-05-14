@@ -1,54 +1,54 @@
 import Foundation
 
-final class ProxyManager {
+public final class ProxyManager {
     private let store: RuleStore
     private var proxies: [UUID: ForwardingProxy] = [:]
     private var observers: [UUID: () -> Void] = [:]
 
-    private(set) var rules: [ProxyRule] {
+    public private(set) var rules: [ProxyRule] {
         didSet {
             store.save(rules)
         }
     }
 
-    private(set) var states: [UUID: ProxyState] = [:]
+    public private(set) var states: [UUID: ProxyState] = [:]
 
-    init(store: RuleStore = RuleStore()) {
+    public init(store: RuleStore = RuleStore()) {
         self.store = store
         self.rules = store.load()
     }
 
     @discardableResult
-    func addObserver(_ observer: @escaping () -> Void) -> UUID {
+    public func addObserver(_ observer: @escaping () -> Void) -> UUID {
         let id = UUID()
         observers[id] = observer
         return id
     }
 
-    func removeObserver(id: UUID) {
+    public func removeObserver(id: UUID) {
         observers.removeValue(forKey: id)
     }
 
-    func startAll() {
+    public func startAll() {
         for rule in rules where rule.enabled {
             start(rule)
         }
         notify()
     }
 
-    func stopAll() {
+    public func stopAll() {
         proxies.values.forEach { $0.stop() }
         proxies.removeAll()
         states = Dictionary(uniqueKeysWithValues: rules.map { ($0.id, ProxyState.stopped) })
         notify()
     }
 
-    func restartAll() {
+    public func restartAll() {
         stopAll()
         startAll()
     }
 
-    func add(_ rule: ProxyRule) {
+    public func add(_ rule: ProxyRule) {
         rules.append(rule)
         if rule.enabled {
             start(rule)
@@ -58,7 +58,7 @@ final class ProxyManager {
         notify()
     }
 
-    func removeRule(id: UUID) {
+    public func removeRule(id: UUID) {
         proxies[id]?.stop()
         proxies.removeValue(forKey: id)
         states.removeValue(forKey: id)
@@ -66,7 +66,7 @@ final class ProxyManager {
         notify()
     }
 
-    func setEnabled(_ enabled: Bool, for id: UUID) {
+    public func setEnabled(_ enabled: Bool, for id: UUID) {
         guard let index = rules.firstIndex(where: { $0.id == id }) else {
             return
         }
@@ -84,7 +84,7 @@ final class ProxyManager {
         notify()
     }
 
-    func state(for rule: ProxyRule) -> ProxyState {
+    public func state(for rule: ProxyRule) -> ProxyState {
         states[rule.id] ?? .stopped
     }
 

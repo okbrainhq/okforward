@@ -1,13 +1,13 @@
 import Darwin
 import Foundation
 
-enum ProxyState: Equatable {
+public enum ProxyState: Equatable {
     case stopped
     case starting
     case ready
     case failed(String)
 
-    var label: String {
+    public var label: String {
         switch self {
         case .stopped:
             return "Stopped"
@@ -21,10 +21,10 @@ enum ProxyState: Equatable {
     }
 }
 
-final class ForwardingProxy {
-    let rule: ProxyRule
+public final class ForwardingProxy {
+    public let rule: ProxyRule
 
-    var onStateChange: ((UUID, ProxyState) -> Void)?
+    public var onStateChange: ((UUID, ProxyState) -> Void)?
 
     private let queue: DispatchQueue
     private let lock = NSLock()
@@ -32,7 +32,7 @@ final class ForwardingProxy {
     private var isRunning = false
     private var sessions: [UUID: ProxySession] = [:]
 
-    private(set) var state: ProxyState = .stopped {
+    public private(set) var state: ProxyState = .stopped {
         didSet {
             DispatchQueue.main.async {
                 self.onStateChange?(self.rule.id, self.state)
@@ -40,12 +40,12 @@ final class ForwardingProxy {
         }
     }
 
-    init(rule: ProxyRule) {
+    public init(rule: ProxyRule) {
         self.rule = rule
         self.queue = DispatchQueue(label: "okforward.proxy.\(rule.id.uuidString)")
     }
 
-    func start() {
+    public func start() {
         guard rule.enabled else {
             state = .stopped
             return
@@ -66,7 +66,7 @@ final class ForwardingProxy {
         }
     }
 
-    func stop() {
+    public func stop() {
         lock.lock()
         isRunning = false
         let fd = listenerFD

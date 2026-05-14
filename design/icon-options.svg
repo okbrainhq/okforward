@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="240" viewBox="0 0 760 240">
+  <rect width="760" height="240" fill="#202326"/>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; fill: #e8eaed; }
+    .label { font-size: 16px; font-weight: 650; }
+    .hint { font-size: 12px; fill: #a9afb5; }
+    .slot { fill: #2f3337; stroke: #555c64; stroke-width: 1; }
+    .icon { fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .fill { fill: #fff; stroke: none; }
+  </style>
+
+  <text x="32" y="34" class="label">OkForward icon options</text>
+  <text x="32" y="55" class="hint">All are compact template-style glyphs for the macOS menu bar.</text>
+
+  <g transform="translate(38 86)">
+    <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
+    <g transform="translate(53 22)">
+      <path class="icon" d="M3 10h14"/>
+      <path class="icon" d="M13 6l4 4-4 4"/>
+      <circle class="fill" cx="3" cy="10" r="2"/>
+      <circle class="fill" cx="21" cy="10" r="2"/>
+      <path class="icon" d="M3 25h14"/>
+      <path class="icon" d="M13 21l4 4-4 4"/>
+      <circle class="fill" cx="3" cy="25" r="2"/>
+      <circle class="fill" cx="21" cy="25" r="2"/>
+    </g>
+    <text x="66" y="72" text-anchor="middle" class="label">A</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">dual forward</text>
+  </g>
+
+  <g transform="translate(220 86)">
+    <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
+    <g transform="translate(53 23)">
+      <rect class="icon" x="1" y="5" width="24" height="30" rx="6"/>
+      <path class="icon" d="M7 20h12"/>
+      <path class="icon" d="M15 16l4 4-4 4"/>
+      <circle class="fill" cx="7" cy="20" r="2"/>
+      <circle class="fill" cx="20" cy="20" r="2"/>
+    </g>
+    <text x="66" y="72" text-anchor="middle" class="label">B</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">port box</text>
+  </g>
+
+  <g transform="translate(402 86)">
+    <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
+    <g transform="translate(53 23)">
+      <path class="icon" d="M3 27C7 9 20 9 24 27"/>
+      <path class="icon" d="M5 27h17"/>
+      <path class="icon" d="M13 15h9"/>
+      <path class="icon" d="M18 11l4 4-4 4"/>
+      <circle class="fill" cx="4" cy="27" r="2.4"/>
+      <circle class="fill" cx="23" cy="27" r="2.4"/>
+    </g>
+    <text x="66" y="72" text-anchor="middle" class="label">C</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">tunnel arc</text>
+  </g>
+
+  <g transform="translate(584 86)">
+    <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
+    <g transform="translate(53 23)">
+      <path class="icon" d="M6 9h15"/>
+      <path class="icon" d="M17 5l4 4-4 4"/>
+      <path class="icon" d="M21 25H6"/>
+      <path class="icon" d="M10 21l-4 4 4 4"/>
+      <circle class="fill" cx="5" cy="9" r="2"/>
+      <circle class="fill" cx="22" cy="25" r="2"/>
+    </g>
+    <text x="66" y="72" text-anchor="middle" class="label">D</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">bidirectional</text>
+  </g>
+</svg>

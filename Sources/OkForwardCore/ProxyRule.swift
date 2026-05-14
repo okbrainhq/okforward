@@ -1,14 +1,14 @@
 import Foundation
 
-struct ProxyRule: Codable, Equatable, Identifiable {
-    var id: UUID
-    var bindHost: String
-    var listenPort: UInt16
-    var targetHost: String
-    var targetPort: UInt16
-    var enabled: Bool
+public struct ProxyRule: Codable, Equatable, Identifiable {
+    public var id: UUID
+    public var bindHost: String
+    public var listenPort: UInt16
+    public var targetHost: String
+    public var targetPort: UInt16
+    public var enabled: Bool
 
-    init(
+    public init(
         id: UUID = UUID(),
         bindHost: String,
         listenPort: UInt16,
@@ -24,13 +24,13 @@ struct ProxyRule: Codable, Equatable, Identifiable {
         self.enabled = enabled
     }
 
-    var displayName: String {
+    public var displayName: String {
         "\(bindHost):\(listenPort) -> \(targetHost):\(targetPort)"
     }
 }
 
-enum PortParser {
-    static func parse(_ value: String) -> UInt16? {
+public enum PortParser {
+    public static func parse(_ value: String) -> UInt16? {
         let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let number = UInt16(trimmed), number > 0 else {
             return nil

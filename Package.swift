@@ -8,12 +8,23 @@ let package = Package(
         .macOS(.v13)
     ],
     products: [
+        .library(name: "OkForwardCore", targets: ["OkForwardCore"]),
         .executable(name: "OkForward", targets: ["OkForward"])
     ],
     targets: [
+        .target(
+            name: "OkForwardCore",
+            path: "Sources/OkForwardCore"
+        ),
         .executableTarget(
             name: "OkForward",
+            dependencies: ["OkForwardCore"],
             path: "Sources/OkForward"
+        ),
+        .testTarget(
+            name: "OkForwardCoreTests",
+            dependencies: ["OkForwardCore"],
+            path: "Tests/OkForwardCoreTests"
         )
     ]
 )

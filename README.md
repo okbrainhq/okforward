@@ -2,7 +2,7 @@
 
 OkForward is a small macOS menu bar TCP forwarding proxy.
 
-It listens on a selected local interface and forward port, then proxies raw TCP bytes to a target host and target port. For example:
+It listens on a selected local interface and bind port, then proxies raw TCP bytes to a target host and target port. For example:
 
 ```text
 192.168.64.1:2222 -> 127.0.0.1:22
@@ -30,3 +30,9 @@ build/OkForward.app
 ```
 
 Use the `OKF` item in the macOS menu bar to open the rule editor.
+
+## Test
+
+```bash
+swift test
+```

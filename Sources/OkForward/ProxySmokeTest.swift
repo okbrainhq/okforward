@@ -1,5 +1,6 @@
 import Darwin
 import Foundation
+import OkForwardCore
 
 enum ProxySmokeTest {
     static func run() -> Bool {

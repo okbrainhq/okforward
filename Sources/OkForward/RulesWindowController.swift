@@ -1,4 +1,5 @@
 import AppKit
+import OkForwardCore
 
 final class RulesWindowController: NSWindowController {
     private let manager: ProxyManager
@@ -79,7 +80,7 @@ final class RulesViewController: NSViewController {
 
     private func buildLayout() {
         let hostLabel = NSTextField(labelWithString: "Bind Host")
-        let listenLabel = NSTextField(labelWithString: "Forward Port")
+        let listenLabel = NSTextField(labelWithString: "Bind Port")
         let targetHostLabel = NSTextField(labelWithString: "Target Host")
         let targetPortLabel = NSTextField(labelWithString: "Target Port")
 
@@ -162,11 +163,9 @@ final class RulesViewController: NSViewController {
         tableView.action = #selector(selectionDidChange)
 
         addColumn(id: "enabled", title: "On", width: 56)
-        addColumn(id: "bind", title: "Bind Host", width: 180)
-        addColumn(id: "listen", title: "Forward", width: 86)
-        addColumn(id: "target", title: "Target Host", width: 170)
-        addColumn(id: "targetPort", title: "Target", width: 86)
-        addColumn(id: "state", title: "State", width: 160)
+        addColumn(id: "bind", title: "Bind", width: 230)
+        addColumn(id: "target", title: "Target", width: 270)
+        addColumn(id: "state", title: "State", width: 150)
     }
 
     private func addColumn(id: String, title: String, width: CGFloat) {
@@ -310,13 +309,9 @@ extension RulesViewController: NSTableViewDataSource, NSTableViewDelegate {
         let text: String
         switch identifier {
         case "bind":
-            text = rule.bindHost
-        case "listen":
-            text = "\(rule.listenPort)"
+            text = endpointLabel(host: rule.bindHost, port: rule.listenPort)
         case "target":
-            text = rule.targetHost
-        case "targetPort":
-            text = "\(rule.targetPort)"
+            text = endpointLabel(host: rule.targetHost, port: rule.targetPort)
         case "state":
             text = manager.state(for: rule).label
         default:
@@ -344,5 +339,13 @@ extension RulesViewController: NSTableViewDataSource, NSTableViewDelegate {
 
         let rule = manager.rules[row]
         manager.setEnabled(sender.state == .on, for: rule.id)
+    }
+
+    private func endpointLabel(host: String, port: UInt16) -> String {
+        if host.contains(":"), !host.hasPrefix("[") {
+            return "[\(host)]:\(port)"
+        }
+
+        return "\(host):\(port)"
     }
 }

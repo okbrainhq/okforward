@@ -1,16 +1,21 @@
 import Foundation
 
-struct NetworkInterface: Equatable {
-    let name: String
-    let address: String
+public struct NetworkInterface: Equatable {
+    public let name: String
+    public let address: String
 
-    var label: String {
+    public init(name: String, address: String) {
+        self.name = name
+        self.address = address
+    }
+
+    public var label: String {
         "\(address) (\(name))"
     }
 }
 
-enum InterfaceProvider {
-    static func availableHosts() -> [NetworkInterface] {
+public enum InterfaceProvider {
+    public static func availableHosts() -> [NetworkInterface] {
         var interfaces: [NetworkInterface] = [
             NetworkInterface(name: "all IPv4", address: "0.0.0.0"),
             NetworkInterface(name: "loopback", address: "127.0.0.1")

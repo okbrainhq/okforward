@@ -1,14 +1,14 @@
 import Foundation
 
-final class RuleStore {
+public final class RuleStore {
     private let key = "forwarding.rules.v1"
     private let defaults: UserDefaults
 
-    init(defaults: UserDefaults = .standard) {
+    public init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
     }
 
-    func load() -> [ProxyRule] {
+    public func load() -> [ProxyRule] {
         guard let data = defaults.data(forKey: key) else {
             return []
         }
@@ -21,7 +21,7 @@ final class RuleStore {
         }
     }
 
-    func save(_ rules: [ProxyRule]) {
+    public func save(_ rules: [ProxyRule]) {
         do {
             let data = try JSONEncoder().encode(rules)
             defaults.set(data, forKey: key)

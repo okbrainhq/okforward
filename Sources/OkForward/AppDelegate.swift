@@ -1,4 +1,5 @@
 import AppKit
+import OkForwardCore
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private let manager = ProxyManager()
@@ -19,8 +20,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func setupStatusItem() {
-        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        item.button?.title = "OKF"
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        item.button?.title = ""
+        item.button?.image = StatusIcon.image()
+        item.button?.imagePosition = .imageOnly
         item.button?.toolTip = "OkForward"
         statusItem = item
         refreshMenu()
