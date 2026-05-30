@@ -19,7 +19,10 @@ let package = Package(
         .executableTarget(
             name: "OkForward",
             dependencies: ["OkForwardCore"],
-            path: "Sources/OkForward"
+            path: "Sources/OkForward",
+            resources: [
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "OkForwardCoreTests",

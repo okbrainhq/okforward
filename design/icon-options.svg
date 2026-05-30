@@ -104,10 +104,10 @@
   <g transform="translate(600 176)">
     <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
     <g transform="translate(53 23)">
-      <path class="icon" stroke-width="2.5" d="M2.5 4L7 9l-4.5 5"/>
-      <path class="icon" stroke-width="2.5" d="M8 4l4.5 5-4.5 5"/>
+      <path class="icon" stroke-width="2.2" d="M3.5 4l3.5 5-3.5 5"/>
+      <path class="icon" stroke-width="2.2" d="M10 4l3.5 5-3.5 5"/>
     </g>
     <text x="66" y="72" text-anchor="middle" class="label">G</text>
-    <text x="66" y="88" text-anchor="middle" class="hint">fast forward</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">fast forward (compact)</text>
   </g>
 </svg>

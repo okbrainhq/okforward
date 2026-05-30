@@ -16,26 +16,26 @@ enum StatusIcon {
 
         NSColor.black.setStroke()
 
-        let lineWidth: CGFloat = 2.5
+        let lineWidth: CGFloat = 2.2
 
-        // First chevron
+        // First chevron — centered
         let chevron1 = NSBezierPath()
         chevron1.lineWidth = lineWidth
         chevron1.lineCapStyle = .round
         chevron1.lineJoinStyle = .round
-        chevron1.move(to: NSPoint(x: 2.5, y: 4))
-        chevron1.line(to: NSPoint(x: 7, y: 9))
-        chevron1.line(to: NSPoint(x: 2.5, y: 14))
+        chevron1.move(to: NSPoint(x: 4.5, y: 4))
+        chevron1.line(to: NSPoint(x: 8, y: 9))
+        chevron1.line(to: NSPoint(x: 4.5, y: 14))
         chevron1.stroke()
 
-        // Second chevron
+        // Second chevron — centered
         let chevron2 = NSBezierPath()
         chevron2.lineWidth = lineWidth
         chevron2.lineCapStyle = .round
         chevron2.lineJoinStyle = .round
-        chevron2.move(to: NSPoint(x: 8, y: 4))
-        chevron2.line(to: NSPoint(x: 12.5, y: 9))
-        chevron2.line(to: NSPoint(x: 8, y: 14))
+        chevron2.move(to: NSPoint(x: 11, y: 4))
+        chevron2.line(to: NSPoint(x: 14.5, y: 9))
+        chevron2.line(to: NSPoint(x: 11, y: 14))
         chevron2.stroke()
 
         return image
