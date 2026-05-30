@@ -14,10 +14,19 @@ swift build -c "$CONFIGURATION"
 BIN_DIR="$(swift build -c "$CONFIGURATION" --show-bin-path)"
 BINARY="$BIN_DIR/OkForward"
 
+# Regenerate AppIcon.icns if missing (e.g. after git clone on a new machine)
+ICONSET_DIR="$ROOT/build/AppIcon.iconset"
+ICNS_PATH="$ROOT/build/AppIcon.icns"
+if [ ! -f "$ICNS_PATH" ]; then
+    mkdir -p "$ICONSET_DIR"
+    cp "$ROOT/Sources/OkForward/Resources/Assets.xcassets/AppIcon.appiconset"/icon_*.png "$ICONSET_DIR/"
+    iconutil --convert icns "$ICONSET_DIR" --output "$ICNS_PATH"
+fi
+
 rm -rf "$APP_DIR"
 mkdir -p "$MACOS_DIR" "$RESOURCES_DIR"
 cp "$BINARY" "$MACOS_DIR/OkForward"
-cp "$ROOT/build/AppIcon.icns" "$RESOURCES_DIR/AppIcon.icns"
+cp "$ICNS_PATH" "$RESOURCES_DIR/AppIcon.icns"
 
 cat > "$CONTENTS_DIR/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
