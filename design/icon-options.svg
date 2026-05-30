@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="240" viewBox="0 0 760 240">
-  <rect width="760" height="240" fill="#202326"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="280" viewBox="0 0 940 280">
+  <rect width="940" height="280" fill="#202326"/>
   <style>
     text { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; fill: #e8eaed; }
     .label { font-size: 16px; font-weight: 650; }
@@ -12,7 +12,8 @@
   <text x="32" y="34" class="label">OkForward icon options</text>
   <text x="32" y="55" class="hint">All are compact template-style glyphs for the macOS menu bar.</text>
 
-  <g transform="translate(38 86)">
+  <!-- Row 1 -->
+  <g transform="translate(60 76)">
     <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
     <g transform="translate(53 22)">
       <path class="icon" d="M3 10h14"/>
@@ -28,7 +29,7 @@
     <text x="66" y="88" text-anchor="middle" class="hint">dual forward</text>
   </g>
 
-  <g transform="translate(220 86)">
+  <g transform="translate(240 76)">
     <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
     <g transform="translate(53 23)">
       <rect class="icon" x="1" y="5" width="24" height="30" rx="6"/>
@@ -41,7 +42,7 @@
     <text x="66" y="88" text-anchor="middle" class="hint">port box</text>
   </g>
 
-  <g transform="translate(402 86)">
+  <g transform="translate(420 76)">
     <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
     <g transform="translate(53 23)">
       <path class="icon" d="M3 27C7 9 20 9 24 27"/>
@@ -55,7 +56,8 @@
     <text x="66" y="88" text-anchor="middle" class="hint">tunnel arc</text>
   </g>
 
-  <g transform="translate(584 86)">
+  <!-- Row 2 -->
+  <g transform="translate(60 176)">
     <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
     <g transform="translate(53 23)">
       <path class="icon" d="M6 9h15"/>
@@ -67,5 +69,45 @@
     </g>
     <text x="66" y="72" text-anchor="middle" class="label">D</text>
     <text x="66" y="88" text-anchor="middle" class="hint">bidirectional</text>
+  </g>
+
+  <g transform="translate(240 176)">
+    <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
+    <g transform="translate(53 23)">
+      <path class="icon" d="M4 26c3-10 8-14 13-14s6 4 6 6-2 4-5 4H9c-3 0-5 2-5 5"/>
+      <path class="icon" d="M16 8l4 4-4 4"/>
+      <circle class="fill" cx="4" cy="26" r="2.2"/>
+      <circle class="fill" cx="19" cy="26" r="2.2"/>
+    </g>
+    <text x="66" y="72" text-anchor="middle" class="label">E</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">stream relay</text>
+  </g>
+
+  <g transform="translate(420 176)">
+    <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
+    <g transform="translate(53 23)">
+      <!-- Top outgoing curve: valley through center -->
+      <path class="icon" d="M3 6C7 10 11 10 15 6"/>
+      <path class="icon" d="M12 4l3 2-3 2"/>
+      <circle class="fill" cx="3" cy="6" r="2"/>
+      <!-- Bottom incoming curve: hill through center -->
+      <path class="icon" d="M15 12C11 8 7 8 3 12"/>
+      <path class="icon" d="M6 10l-3 2 3 2"/>
+      <circle class="fill" cx="15" cy="12" r="2"/>
+      <!-- Central hub -->
+      <circle class="fill" cx="9" cy="9" r="2.2"/>
+    </g>
+    <text x="66" y="72" text-anchor="middle" class="label">F</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">exchange hub</text>
+  </g>
+
+  <g transform="translate(600 176)">
+    <rect class="slot" x="0" y="0" width="132" height="98" rx="10"/>
+    <g transform="translate(53 23)">
+      <path class="icon" stroke-width="2.5" d="M2.5 4L7 9l-4.5 5"/>
+      <path class="icon" stroke-width="2.5" d="M8 4l4.5 5-4.5 5"/>
+    </g>
+    <text x="66" y="72" text-anchor="middle" class="label">G</text>
+    <text x="66" y="88" text-anchor="middle" class="hint">fast forward</text>
   </g>
 </svg>
